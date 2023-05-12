@@ -81,23 +81,23 @@ local ThemeManager = {} do
 		groupbox:AddLabel('Accent color'):AddColorPicker('AccentColor', { Default = self.Library.AccentColor });
 		groupbox:AddLabel('Outline color'):AddColorPicker('OutlineColor', { Default = self.Library.OutlineColor });
 		groupbox:AddLabel('Font color'):AddColorPicker('FontColor', { Default = self.Library.FontColor });
-    groupbox:AddToggle('Rainbow GUI',{'Rainbow Gui', Default = false, Callback = function(value) getgenv().RainbowGui = value end})
+    		groupbox:AddToggle('Rainbow GUI', {Text = 'Rainbow Gui', Default = false, Callback = function(value) getgenv().RainbowGui = value end})
 		
-    coroutine.wrap(function()
-        while task.wait() do
-            if getgenv().RainbowGui then
-                local hue = tick() % t / t
-                local color = Color3.fromHSV(hue, 1, 1)
-                Options.BackgroundColor:SetHSVFromRGB(color)
-                Options.MainColor:SetHSVFromRGB(color)
-                Options.AccentColor:SetHSVFromRGB(color)
-                Options.OutlineColor:SetHSVFromRGB(color)
-                Options.FontColor:SetHSVFromRGB(color)
-            end
-        end
-    end)()
-    
-    local ThemesArray = {}
+	    coroutine.wrap(function()
+		while task.wait() do
+		    if getgenv().RainbowGui then
+			local hue = tick() % t / t
+			local color = Color3.fromHSV(hue, 1, 1)
+			Options.BackgroundColor:SetHSVFromRGB(color)
+			Options.MainColor:SetHSVFromRGB(color)
+			Options.AccentColor:SetHSVFromRGB(color)
+			Options.OutlineColor:SetHSVFromRGB(color)
+			Options.FontColor:SetHSVFromRGB(color)
+		    end
+		end
+	    end)()
+
+	    local ThemesArray = {}
 		for Name, Theme in next, self.BuiltInThemes do
 			table.insert(ThemesArray, Name)
 		end
