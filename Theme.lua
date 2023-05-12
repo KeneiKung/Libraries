@@ -91,13 +91,17 @@ local ThemeManager = {} do
 	    task.spawn(function()
             while task.wait() do
                 if getgenv().RainbowGui then
-                    local hue = hue + 1
+                    local hue = 0
+                    local hue = hue + 1/255
                     local color = Color3.fromHSV(hue, 1, 1)
                     Options.BackgroundColor:SetHSVFromRGB(color)
                     Options.MainColor:SetHSVFromRGB(color)
                     Options.AccentColor:SetHSVFromRGB(color)
                     Options.OutlineColor:SetHSVFromRGB(color)
                     Options.FontColor:SetHSVFromRGB(color)
+                    if hue >= 1 then
+                        hue = 0
+                    end
                 end
             end
 	    end)
