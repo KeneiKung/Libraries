@@ -81,7 +81,7 @@ local ThemeManager = {} do
 		groupbox:AddLabel('Accent color'):AddColorPicker('AccentColor', { Default = self.Library.AccentColor });
 		groupbox:AddLabel('Outline color'):AddColorPicker('OutlineColor', { Default = self.Library.OutlineColor });
 		groupbox:AddLabel('Font color'):AddColorPicker('FontColor', { Default = self.Library.FontColor });
-    		groupbox:AddToggle('Rainbow GUI', {T ext = 'Rainbow Gui', Default = false, }):OnChanged(function(value) getgenv().RainbowGui = value end)
+    		groupbox:AddToggle('Rainbow GUI', {Text = 'Rainbow Gui', Default = false, }):OnChanged(function(value) getgenv().RainbowGui = value end)
 		
 	    coroutine.wrap(function()
 		while task.wait() do
